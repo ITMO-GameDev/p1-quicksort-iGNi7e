@@ -1,4 +1,4 @@
-Skip to content
+﻿Skip to content
 Sign up Sign in This repository
 Explore
 Features
@@ -199,3 +199,7 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+
+
+.vs/
+.vs/*

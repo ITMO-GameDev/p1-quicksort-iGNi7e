@@ -25,6 +25,7 @@
     <RootNamespace>UnitTestLesson1</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
     <ProjectSubType>NativeUnitTestProject</ProjectSubType>
+    <ProjectName>UnitTestLesson</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -163,10 +164,22 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="unittest1.cpp" />
+    <ClCompile Include="unittest2.cpp" />
+    <ClCompile Include="unittest3.cpp" />
+    <ClCompile Include="unittest4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lesson1\Lesson1.vcxproj">
       <Project>{b4cc7c11-ecd6-4b79-b8df-c553031a9a6b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Lesson2\Lesson2.vcxproj">
+      <Project>{cae0cec7-bd14-4284-be6f-d1a23d7805e9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Lesson3\Lesson3.vcxproj">
+      <Project>{bfd0b3f0-97e5-42e1-b609-9d00b26d1178}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Lesson4\Lesson4.vcxproj">
+      <Project>{cce6da0b-23b8-438f-b42e-042eef53b0ec}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

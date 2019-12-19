@@ -3,16 +3,13 @@
 #include <algorithm>
 #include <time.h> 
 
-//Первая программа на плюсах :) сильно не ругайтесь
-//но если можно, по максимуму описать, что лучше переделать
-
 int main() {
 	
 	const int length = 200000;
 	int a[length];
 	fillArrayInt( a, length );
 
-	auto lambda = [] ( int a, int b ) { return a > b; }; //шаблон нельзя же использовать для лямбда-выражений?
+	auto lambda = [] ( int a, int b ) { return a > b; };
 
 	clock_t start = clock();
 

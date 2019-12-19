@@ -92,9 +92,7 @@ Array<T>::Array( const Array &obj ) :
 	capacity( obj.capacity ), sizeArr( obj.sizeArr )
 {
 	array = new T[capacity];
-	for( int i = 0; i < capacity; i++ )
-		array[i] = 0;
-	for( int i = 0; i < capacity; i++ )
+	for( int i = 0; i < sizeArr; i++ )
 		array[i] = obj.array[i];
 }
 
@@ -108,8 +106,6 @@ T * expansionArray( T *arr, int sz, int& _capacity )
 {
 	_capacity *= 1.618f;
 	T *arr2 = new T[_capacity];
-	for( int i = 0; i < _capacity; i++ )
-		arr2[i] = 0;
 	for( int i = 0; i < sz; i++ )
 		arr2[i] = arr[i];
 	delete[] arr;
@@ -125,23 +121,30 @@ void Array<T>::insert( const T& value ) {
 }
 
 template <typename T>
-T * addValueInArray( T *arr, int sz, int& _capacity, int index, const T& value )
+void addValueInArray( T *arr, int sz, int index, const T& value )
 {
 	try
 	{
-		if( index < 0 || index > _capacity )
+		if( index < 0 || index > sz )
 			throw "Invalid index!";
 
-		T *arr2 = new T[_capacity];
-		for( int i = 0; i < _capacity; i++ )
-			arr2[i] = 0;
+		/*T *arr2 = new T[_capacity];
+
 		for( int i = 0; i <= index - 1; i++ )
 			arr2[i] = arr[i];
 		arr2[index] = value;
 		for( int i = index; i < sz; i++ )
-			arr2[i + 1] = arr[i];
-		delete[] arr;
-		return arr2;
+			arr2[i + 1] = arr[i];*/
+
+		for( int i = sz - 1; i >= index; i-- )
+		{
+			arr[i] = arr[i - 1];
+		}
+		arr[index] = value;
+
+		/*delete[] arr;
+		return arr2;*/
+
 	}
 	catch( const char* msg )
 	{
@@ -159,7 +162,7 @@ void Array<T>::insert( int index, const T& value ) {
 		if( capacity < ++sizeArr ) {
 			array = expansionArray( array, sizeArr, capacity );
 		}
-		array = addValueInArray( array, sizeArr, capacity, index, value );
+		addValueInArray( array, sizeArr, index, value );
 	}
 	catch( const char* msg )
 	{
